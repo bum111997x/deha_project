@@ -134,25 +134,25 @@ $(document).ready(function () {
             });
     });
 
-    // // Show form Setting Permission
-    //
-    // $(document).on("click", "#buttonSetting", function (e) {
-    //     e.preventDefault();
-    //     let roleId = $(this).data('id');
-    //     let urlResource = '/roles/' + roleId + '/permissions';
-    //     $.ajax({
-    //         url: urlResource,
-    //         type: 'GET'
-    //     })
-    //         .done(response => {
-    //             $('#largeModal').modal('show');
-    //             $('#permission').html(response);
-    //             $('#btn-setting').attr("data-id", roleId);
-    //         })
-    //         .fail(error => {
-    //             console.log(error);
-    //         });
-    // });
+    // Show form Setting Permission
+
+    $(document).on("click", "#buttonSetting", function (e) {
+        e.preventDefault();
+        let roleId = $(this).data('id');
+        let urlResource = '/roles/' + roleId + '/permissions';
+        $.ajax({
+            url: urlResource,
+            type: 'GET'
+        })
+            .done(response => {
+                $('#largeModal').modal('show');
+                $('#permission').html(response);
+                $('#btn-setting').attr("data-id", roleId);
+            })
+            .fail(error => {
+                console.log(error);
+            });
+    });
 
     // $(document).on("click", "#btn-setting", function (e) {
     //     e.preventDefault();

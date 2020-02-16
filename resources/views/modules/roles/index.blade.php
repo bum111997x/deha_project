@@ -133,7 +133,7 @@
                                     </div>
                                 </div>
                                 <div class="permission" id="permission" style="padding-top: 10px">
-{{--                                    @include('models.roles.permission')--}}
+                                    @include('modules.roles.permission')
                                 </div>
                             </div>
                         </div>

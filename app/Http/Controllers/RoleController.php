@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Permission;
 use App\Role;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
     protected $role;
+    protected $permission;
 
-    public function __construct(Role $role)
+    public function __construct(Role $role, Permission $permission)
     {
         $this->role = $role;
+        $this->permission = $permission;
     }
 
     public function index()
@@ -71,21 +74,21 @@ class RoleController extends Controller
 
         return view('modules.roles.table', compact('roles'));
     }
-//
-//    public function showPermissionsByRole($id)
-//    {
-//        $permissions = $this->permission->getAll();
-//        $role = $this->role->findBy($id);
+
+    public function showPermissionsByRole($id)
+    {
+        $permissions = $this->permission->getAll();
+        $role = $this->role->findBy($id);
 //        $permissionByRole = $role->permissions()->get();
 //        $data = [];
 //        foreach ($permissionByRole as $item) {
 //            $permissionsOfRoleById = $item->id;
 //            array_push($data, $permissionsOfRoleById);
 //        }
-//
-//        return view('models.roles.permission', compact('permissions','data'));
-//    }
-//
+
+        return view('modules.roles.permission', compact('permissions'));
+    }
+
 //    public function setPermissionsForRole($roleId, $permissionIds)
 //    {
 //        $ids = explode(',', $permissionIds);

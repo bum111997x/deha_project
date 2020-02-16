@@ -18,8 +18,8 @@ class Permission extends Model
 //        return $this->belongsToMany('App\Role', 'permission_role', 'permission_id', 'role_id');
 //    }
 //
-//    public function getAll()
-//    {
-//        return $this->all();
-//    }
+    public function getAll()
+    {
+        return $this->all();
+    }
 }
