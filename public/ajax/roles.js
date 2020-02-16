@@ -11,19 +11,19 @@ $(document).ready(function () {
 
     // DataRaw of Role
 
-    // function dataRaw(response) {
-    //     return `<tr id="role_${response.data.id}">
-    //                 <td>${response.data.role_name}</td>
-    //                 <td>${response.data.role_label}</td>
-    //                 <td>${response.data.role_status == 1 ? '<span class="badge badge-success">Actived</span>' : '<span class="badge badge-pill badge-primary">Locked</span>'}</td>
-    //                 <td>${response.data.created_at}</td>
-    //                 <td>
-    //                     <button type="button" class="btn btn-danger" id="buttonDelete" data-id="${response.data.id}">Delete</button>
-    //                     <button type="button" class="btn btn-warning" id="buttonEdit" data-id="${response.data.id}" >Edit</button>
-    //                     <button type="button" class="btn btn-success" id="buttonSetting" data-id="${response.data.id}">Setting</button>
-    //                 </td>
-    //             </tr>`;
-    // }
+    function dataRaw(response) {
+        return `<tr id="role_${response.data.id}">
+                    <td>${response.data.role_name}</td>
+                    <td>${response.data.role_label}</td>
+                    <td>${response.data.role_status == 1 ? '<span class="badge badge-success">Actived</span>' : '<span class="badge badge-pill badge-primary">Locked</span>'}</td>
+                    <td>${response.data.created_at}</td>
+                    <td>
+                        <button type="button" class="btn btn-danger" id="buttonDelete" data-id="${response.data.id}">Delete</button>
+                        <button type="button" class="btn btn-warning" id="buttonEdit" data-id="${response.data.id}" >Edit</button>
+                        <button type="button" class="btn btn-success" id="buttonSetting" data-id="${response.data.id}">Setting</button>
+                    </td>
+                </tr>`;
+    }
 
     //Search
 
@@ -113,26 +113,26 @@ $(document).ready(function () {
 
     //Show form Edit
 
-    // $(document).on("click", "#buttonEdit", function (e) {
-    //     e.preventDefault();
-    //     let id = $(this).data('id');
-    //     let urlResource = '/roles/' + id + '/edit';
-    //     $.ajax({
-    //         url: urlResource,
-    //         type: 'GET',
-    //     })
-    //         .done(response => {
-    //             $('#editRoleModalForm').modal('show');
-    //             $('#role_name').val(response.data.role_name);
-    //             $('#role_label').val(response.data.role_label);
-    //             $('#role_status').val(response.data.role_status);
-    //             $('#buttonUpdate').attr("data-id", id);
-    //
-    //         })
-    //         .fail(error => {
-    //             console.log(error);
-    //         });
-    // });
+    $(document).on("click", "#buttonEdit", function (e) {
+        e.preventDefault();
+        let id = $(this).data('id');
+        let urlResource = '/roles/' + id + '/edit';
+        $.ajax({
+            url: urlResource,
+            type: 'GET',
+        })
+            .done(response => {
+                $('#editRoleModalForm').modal('show');
+                $('#role_name').val(response.data.role_name);
+                $('#role_label').val(response.data.role_label);
+                $('#role_status').val(response.data.role_status);
+                $('#buttonUpdate').attr("data-id", id);
+
+            })
+            .fail(error => {
+                console.log(error);
+            });
+    });
 
     // // Show form Setting Permission
     //
@@ -194,31 +194,31 @@ $(document).ready(function () {
 
     // Update Role
 
-    // $(document).on("click", '#buttonUpdate', function (e) {
-    //     e.preventDefault();
-    //     let id = $('#buttonUpdate').data('id');
-    //     let urlResource = "/roles/update/" + id;
-    //     let dataResource = $('#roleFormEdit').serialize();
-    //     $.ajax({
-    //         url: urlResource,
-    //         type: 'POST',
-    //         data: dataResource
-    //     })
-    //         .done(response => {
-    //             $("#role_" + id).replaceWith(dataRaw(response));
-    //             $('#roleForm').trigger('reset');
-    //             $('#editRoleModalForm').modal('hide');
-    //             Swal.fire({
-    //                 position: 'top-end',
-    //                 icon: 'success',
-    //                 title: 'Your work has been saved',
-    //                 showConfirmButton: false,
-    //                 timer: 1500
-    //             })
-    //         })
-    //         .fail(error => {
-    //             console.log(error);
-    //         });
-    // })
+    $(document).on("click", '#buttonUpdate', function (e) {
+        e.preventDefault();
+        let id = $('#buttonUpdate').data('id');
+        let urlResource = "/roles/update/" + id;
+        let dataResource = $('#roleFormEdit').serialize();
+        $.ajax({
+            url: urlResource,
+            type: 'POST',
+            data: dataResource
+        })
+            .done(response => {
+                $("#role_" + id).replaceWith(dataRaw(response));
+                $('#roleForm').trigger('reset');
+                $('#editRoleModalForm').modal('hide');
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+            .fail(error => {
+                console.log(error);
+            });
+    })
 });
 

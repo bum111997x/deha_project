@@ -32,29 +32,29 @@ class RoleController extends Controller
 
     }
 
-//    public function edit($id)
-//    {
-//        $role = $this->role->findBy($id);
-//
-//        return response()->json([
-//            'status_code' => 200,
-//            'message' => 'success',
-//            'data' => $role
-//        ], 200);
-//    }
-//
-//    public function update(Request $request, $id)
-//    {
-//        $this->role->updateData($request->all(), $id);
-//        $role = $this->role->findBy($id);
-//
-//        return response()->json([
-//            'status_code' => 200,
-//            'message' => 'success',
-//            'data' => $role
-//        ], 200);
-//    }
-//
+    public function edit($id)
+    {
+        $role = $this->role->findBy($id);
+
+        return response()->json([
+            'status_code' => 200,
+            'message' => 'success',
+            'data' => $role
+        ], 200);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->role->updateData($request->all(), $id);
+        $role = $this->role->findBy($id);
+
+        return response()->json([
+            'status_code' => 200,
+            'message' => 'success',
+            'data' => $role
+        ], 200);
+    }
+
 //    public function destroy($id)
 //    {
 //        $ids = explode(',', $id);

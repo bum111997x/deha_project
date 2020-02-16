@@ -45,19 +45,19 @@ class Role extends Model
 //        return $this->destroy($ids);
 //    }
 //
-//    public function findBy($id)
-//    {
-//        return $this->findOrFail($id);
-//    }
-//
-//    public function updateData(array $data, $id)
-//    {
-//        return $this->findOrFail($id)->update([
-//            'role_name' => $data['name'],
-//            'role_label' => $data['label'],
-//            'role_level' => 1,
-//            'role_status' => $data['status'],
-//        ]);
-//    }
+    public function findBy($id)
+    {
+        return $this->findOrFail($id);
+    }
+
+    public function updateData(array $data, $id)
+    {
+        return $this->findOrFail($id)->update([
+            'role_name' => $data['name'],
+            'role_label' => $data['label'],
+            'role_level' => 1,
+            'role_status' => $data['status'],
+        ]);
+    }
 
 }
