@@ -27,24 +27,24 @@ $(document).ready(function () {
 
     //Search
 
-    // $(document).on('click', '#button', function () {
-    //     let query = $('#search').val();
-    //     if (query == '') {
-    //         alert('Please enter your text!');
-    //         window.location.reload();
-    //     } else {
-    //         $.ajax({
-    //             url: 'roles/search/' + query,
-    //             type: 'GET',
-    //         })
-    //             .done(response => {
-    //                 $('#data-role').html(response);
-    //             })
-    //             .fail(error => {
-    //                 console.log(error);
-    //             });
-    //     }
-    // });
+    $(document).on('click', '#button', function () {
+        let query = $('#search').val();
+        if (query == '') {
+            alert('Please enter your text!');
+            window.location.reload();
+        } else {
+            $.ajax({
+                url: 'roles/search/' + query,
+                type: 'GET',
+            })
+                .done(response => {
+                    $('#data-role').html(response);
+                })
+                .fail(error => {
+                    console.log(error);
+                });
+        }
+    });
 
     //Create Product
 

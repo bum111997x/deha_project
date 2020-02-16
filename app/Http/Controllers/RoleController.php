@@ -65,12 +65,12 @@ class RoleController extends Controller
 //        return view('modules.roles.table', compact('roles'));
 //    }
 //
-//    public function search($query)
-//    {
-//        $roles = $this->role->search($query);
-//
-//        return view('modules.roles.table', compact('roles'));
-//    }
+    public function search($query)
+    {
+        $roles = $this->role->search($query);
+
+        return view('modules.roles.table', compact('roles'));
+    }
 //
 //    public function showPermissionsByRole($id)
 //    {

@@ -25,21 +25,21 @@ class Role extends Model
         return $this->where('role_level', 1)->orderBy('id', 'DESC')->paginate($limit);
     }
 
-//    public function search($query)
-//    {
-//        return $this->where('role_level',1)->where('role_label', 'like', '%' . $query . '%')->orderBy('id', 'DESC')->paginate(10);
-//    }
-//
-//    public function saveData(array $data)
-//    {
-//        return $this->create([
-//            'role_name' => $data['name'],
-//            'role_label' => $data['label'],
-//            'role_level' => 1,
-//            'role_status' => $data['status'],
-//        ]);
-//    }
-//
+    public function search($query)
+    {
+        return $this->where('role_level',1)->where('role_label', 'like', '%' . $query . '%')->orderBy('id', 'DESC')->paginate(10);
+    }
+
+    public function saveData(array $data)
+    {
+        return $this->create([
+            'role_name' => $data['name'],
+            'role_label' => $data['label'],
+            'role_level' => 1,
+            'role_status' => $data['status'],
+        ]);
+    }
+
 //    public function deleteData(array $ids)
 //    {
 //        return $this->destroy($ids);
