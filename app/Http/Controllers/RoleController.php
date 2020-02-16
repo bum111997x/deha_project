@@ -55,16 +55,16 @@ class RoleController extends Controller
         ], 200);
     }
 
-//    public function destroy($id)
-//    {
-//        $ids = explode(',', $id);
-//        $this->role->deleteData($ids);
-//        $roles = $this->role->paginateBy(5);
-//        $roles->setPath('/roles');
-//
-//        return view('modules.roles.table', compact('roles'));
-//    }
-//
+    public function destroy($id)
+    {
+        $ids = explode(',', $id);
+        $this->role->deleteData($ids);
+        $roles = $this->role->paginateBy(5);
+        $roles->setPath('/roles');
+
+        return view('modules.roles.table', compact('roles'));
+    }
+
     public function search($query)
     {
         $roles = $this->role->search($query);

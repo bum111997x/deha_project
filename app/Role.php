@@ -40,11 +40,11 @@ class Role extends Model
         ]);
     }
 
-//    public function deleteData(array $ids)
-//    {
-//        return $this->destroy($ids);
-//    }
-//
+    public function deleteData(array $ids)
+    {
+        return $this->destroy($ids);
+    }
+
     public function findBy($id)
     {
         return $this->findOrFail($id);

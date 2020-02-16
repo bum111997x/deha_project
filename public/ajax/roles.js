@@ -75,30 +75,30 @@ $(document).ready(function () {
 
     // Delete Role
 
-    // $(document).on('click', '#buttonDelete', function (e) {
-    //     e.preventDefault();
-    //     let id = $(this).data('id');
-    //     $.ajax({
-    //         url: 'roles/delete/' + id,
-    //         type: 'DELETE',
-    //     })
-    //         .done(response => {
-    //             $('#role_' + id).remove();
-    //             $('#data-role').html(response);
-    //             Swal.fire({
-    //                 position: 'top-end',
-    //                 icon: 'success',
-    //                 title: 'Your work has been saved',
-    //                 showConfirmButton: false,
-    //                 timer: 1500
-    //             })
-    //         })
-    //         .fail(error => {
-    //             console.log(error)
-    //
-    //         })
-    // })
-    // ;
+    $(document).on('click', '#buttonDelete', function (e) {
+        e.preventDefault();
+        let id = $(this).data('id');
+        $.ajax({
+            url: 'roles/delete/' + id,
+            type: 'DELETE',
+        })
+            .done(response => {
+                $('#role_' + id).remove();
+                $('#data-role').html(response);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+            .fail(error => {
+                console.log(error)
+
+            })
+    })
+    ;
 
     //Show Modal
 
