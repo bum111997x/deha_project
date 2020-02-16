@@ -22,16 +22,16 @@ class RoleController extends Controller
 
     }
 
-//    public function store(Request $request)
-//    {
-//        $this->role->saveData($request->all());
-//        $roles = $this->role->paginateBy(5);
-//        $roles->setPath('/roles');
-//
-//        return view('modules.roles.table', compact('roles'));
-//
-//    }
-//
+    public function store(Request $request)
+    {
+        $this->role->saveData($request->all());
+        $roles = $this->role->paginateBy(5);
+        $roles->setPath('/roles');
+
+        return view('modules.roles.table', compact('roles'));
+
+    }
+
 //    public function edit($id)
 //    {
 //        $role = $this->role->findBy($id);

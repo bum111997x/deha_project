@@ -36,7 +36,7 @@ class Role extends Model
             'role_name' => $data['name'],
             'role_label' => $data['label'],
             'role_level' => 1,
-            'role_status' => $data['status'],
+            'role_status' => $data['status']
         ]);
     }
 

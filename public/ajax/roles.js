@@ -48,30 +48,30 @@ $(document).ready(function () {
 
     //Create Product
 
-    // $(document).on("click", '#buttonSave', function (e) {
-    //     e.preventDefault();
-    //     let dataResource = $('#roleForm').serialize();
-    //     $.ajax({
-    //         url: 'roles/store',
-    //         type: 'POST',
-    //         data: dataResource,
-    //     })
-    //         .done(response => {
-    //             $('#data-role').html(response);
-    //             $('#roleForm').trigger('reset');
-    //             $('#createRoleModalForm').modal('hide');
-    //             Swal.fire({
-    //                 position: 'top-end',
-    //                 icon: 'success',
-    //                 title: 'Your work has been saved',
-    //                 showConfirmButton: false,
-    //                 timer: 1500
-    //             })
-    //         })
-    //         .fail(error => {
-    //             console.log(error);
-    //         });
-    // });
+    $(document).on("click", '#buttonSave', function (e) {
+        e.preventDefault();
+        let dataResource = $('#roleForm').serialize();
+        $.ajax({
+            url: 'roles/store',
+            type: 'POST',
+            data: dataResource,
+        })
+            .done(response => {
+                $('#data-role').html(response);
+                $('#roleForm').trigger('reset');
+                $('#createRoleModalForm').modal('hide');
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+            .fail(error => {
+                console.log(error);
+            });
+    });
 
     // Delete Role
 
@@ -102,13 +102,13 @@ $(document).ready(function () {
 
     //Show Modal
 
-    // $('#createRoleModalForm').on('show.bs.modal', function (event) {
-    //     let button = $(event.relatedTarget);
-    //     let recipient = button.data('whatever');
-    //     let modal = $(this);
-    //     modal.find('.modal-title').text('New message to ' + recipient);
-    //     modal.find('.modal-body input').val(recipient)
-    // });
+    $('#createRoleModalForm').on('show.bs.modal', function (event) {
+        let button = $(event.relatedTarget);
+        let recipient = button.data('whatever');
+        let modal = $(this);
+        modal.find('.modal-title').text('New message to ' + recipient);
+        modal.find('.modal-body input').val(recipient)
+    });
 
 
     //Show form Edit
