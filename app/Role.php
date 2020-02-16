@@ -10,10 +10,10 @@ class Role extends Model
     protected $fillable = ['role_name', 'role_label', 'role_status', 'role_level'];
     public $timestamps = true;
 
-//    public function permissions()
-//    {
-//        return $this->belongsToMany('App\Permission', 'permission_role', 'role_id', 'permission_id');
-//    }
+    public function permissions()
+    {
+        return $this->belongsToMany('App\Permission', 'permission_role', 'role_id', 'permission_id');
+    }
 
     public function getAll()
     {

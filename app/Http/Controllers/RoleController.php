@@ -79,26 +79,26 @@ class RoleController extends Controller
     {
         $permissions = $this->permission->getAll();
         $role = $this->role->findBy($id);
-//        $permissionByRole = $role->permissions()->get();
-//        $data = [];
-//        foreach ($permissionByRole as $item) {
-//            $permissionsOfRoleById = $item->id;
-//            array_push($data, $permissionsOfRoleById);
-//        }
+        $permissionByRole = $role->permissions()->get();
+        $data = [];
+        foreach ($permissionByRole as $item) {
+            $permissionsOfRoleById = $item->id;
+            array_push($data, $permissionsOfRoleById);
+        }
 
-        return view('modules.roles.permission', compact('permissions'));
+        return view('modules.roles.permission', compact('permissions','data'));
     }
 
-//    public function setPermissionsForRole($roleId, $permissionIds)
-//    {
-//        $ids = explode(',', $permissionIds);
-//        $role = $this->role->findBy($roleId);
-//        $role->permissions()->sync($ids);
-//
-//        return response()->json([
-//            'status_code' => 200,
-//            'message' => 'success',
-//            'data' => $role
-//        ], 200);
-//    }
+    public function setPermissionsForRole($roleId, $permissionIds)
+    {
+        $ids = explode(',', $permissionIds);
+        $role = $this->role->findBy($roleId);
+        $role->permissions()->sync($ids);
+
+        return response()->json([
+            'status_code' => 200,
+            'message' => 'success',
+            'data' => $role
+        ], 200);
+    }
 }

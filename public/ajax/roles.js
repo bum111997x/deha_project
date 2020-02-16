@@ -5,9 +5,9 @@ $(document).ready(function () {
         }
     });
 
-    // $(".per-select-all").click(function () {
-    //     $(".per-select-one").prop("checked", $(this).prop("checked"));
-    // });
+    $(".per-select-all").click(function () {
+        $(".per-select-one").prop("checked", $(this).prop("checked"));
+    });
 
     // DataRaw of Role
 
@@ -145,7 +145,7 @@ $(document).ready(function () {
             type: 'GET'
         })
             .done(response => {
-                $('#largeModal').modal('show');
+                $('#settingPermissionModal').modal('show');
                 $('#permission').html(response);
                 $('#btn-setting').attr("data-id", roleId);
             })
@@ -154,43 +154,43 @@ $(document).ready(function () {
             });
     });
 
-    // $(document).on("click", "#btn-setting", function (e) {
-    //     e.preventDefault();
-    //     let ids = [];
-    //     let roleId = $(this).data('id');
-    //     $('.per-select-one:checked').each(function (i) {
-    //         ids.push($(this).attr('data-ids'));
-    //     });
-    //     if (ids.length == 0) {
-    //         Swal.fire({
-    //             position: 'top-end',
-    //             icon: 'error',
-    //             title: 'Your work has been saved',
-    //             showConfirmButton: false,
-    //             timer: 1500
-    //         });
-    //     } else {
-    //         $.ajax({
-    //             url: '/roles/' + roleId + '/setting/permissions/' + ids,
-    //             type: 'POST',
-    //         })
-    //             .done(response => {
-    //                 Swal.fire({
-    //                     position: 'top-end',
-    //                     icon: 'success',
-    //                     title: 'Your work has been saved',
-    //                     showConfirmButton: false,
-    //                     timer: 1500
-    //                 });
-    //                 window.location.reload();
-    //                 $(".per-select-all").prop("checked", true);
-    //                 $('#largeModal').modal('hide');
-    //             })
-    //             .fail(error => {
-    //                 console.log(error);
-    //             });
-    //     }
-    // });
+    $(document).on("click", "#btn-setting", function (e) {
+        e.preventDefault();
+        let ids = [];
+        let roleId = $(this).data('id');
+        $('.per-select-one:checked').each(function (i) {
+            ids.push($(this).attr('data-ids'));
+        });
+        if (ids.length == 0) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        } else {
+            $.ajax({
+                url: '/roles/' + roleId + '/setting/permissions/' + ids,
+                type: 'POST',
+            })
+                .done(response => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Your work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    window.location.reload();
+                    $(".per-select-all").prop("checked", true);
+                    $('#settingPermissionModal').modal('hide');
+                })
+                .fail(error => {
+                    console.log(error);
+                });
+        }
+    });
 
     // Update Role
 
