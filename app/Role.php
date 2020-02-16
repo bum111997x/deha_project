@@ -1,30 +1,30 @@
 <?php
-//
-//namespace App;
-//
-//use Illuminate\Database\Eloquent\Model;
-//
-//class Role extends Model
-//{
-//    protected $table = 'roles';
-//    protected $fillable = ['role_name', 'role_label', 'role_status', 'role_level'];
-//    public $timestamps = true;
-//
-////    public function permissions()
-////    {
-////        return $this->belongsToMany('App\Permission', 'permission_role', 'role_id', 'permission_id');
-////    }
-//
-//    public function getAll()
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Role extends Model
+{
+    protected $table = 'roles';
+    protected $fillable = ['role_name', 'role_label', 'role_status', 'role_level'];
+    public $timestamps = true;
+
+//    public function permissions()
 //    {
-//        return $this->all();
+//        return $this->belongsToMany('App\Permission', 'permission_role', 'role_id', 'permission_id');
 //    }
-//
-//    public function paginateBy($limit = 15)
-//    {
-//        return $this->where('role_level', 1)->orderBy('id', 'DESC')->paginate($limit);
-//    }
-//
+
+    public function getAll()
+    {
+        return $this->all();
+    }
+
+    public function paginateBy($limit = 15)
+    {
+        return $this->where('role_level', 1)->orderBy('id', 'DESC')->paginate($limit);
+    }
+
 //    public function search($query)
 //    {
 //        return $this->where('role_level',1)->where('role_label', 'like', '%' . $query . '%')->orderBy('id', 'DESC')->paginate(10);
@@ -59,5 +59,5 @@
 //            'role_status' => $data['status'],
 //        ]);
 //    }
-//
-//}
+
+}

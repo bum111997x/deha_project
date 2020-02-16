@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="data-role" id="data-role">
-{{--                        @include('modules.roles.table')--}}
+                        @include('modules.roles.table')
                     </div>
                 </div>
             </div>
