@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        $totalProduct = count(Role::all());
-//        View::share('totalProduct', $totalProduct);
+        $totalProduct = count(Role::all());
+        View::share('totalProduct', $totalProduct);
     }
 }
